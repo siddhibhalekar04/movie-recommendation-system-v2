@@ -8,11 +8,8 @@ import gdown
 FILE_ID = "10G7Wix8qVcm8PRnallzWIMBpHWHa5Qtm"
 
 if not os.path.exists("similarity.pkl"):
-    gdown.download(
-        f"https://drive.google.com/uc?id={FILE_ID}",
-        "similarity.pkl",
-        quiet=False
-    )
+    url = f"https://drive.google.com/uc?export=download&id={FILE_ID}"
+    gdown.download(url, "similarity.pkl", quiet=False, fuzzy=True)
 
 # Load files
 movies = pickle.load(open("movies.pkl", "rb"))
